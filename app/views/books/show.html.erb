@@ -1,0 +1,84 @@
+<h1 style="text-align:center;color:white;background-color:black">Details Of Book</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-9"><h2 style="text-align:left;color:blue">Book Information</h2></div><hr>
+      <div class="col-4"><div class="feature-image">
+        <%= image_tag @book.image, :size=>"287x400" if @book.image.attached? %>
+      </div>
+    </div>
+    <div class="col-6">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Book Name</th>
+            <th scope="col">Book Description</th>
+            <th scope="col">Book Published Date</th>
+            <th scope="col">Author Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @book.book_name%></td>
+            <td><%= @book.description%></td>
+            <td><%= @book.published_date%></td>
+            <td><%= link_to @authors.name, personal_details_author_path%></td>
+          </tr>  
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<hr><h2>Posted Reviews</h2><hr>
+<% @book.reviews.each do |review| %>
+  <p>
+    <strong>Reviewer Name:</strong>
+    <%= review.r_name %>
+  </p>
+
+  <p>
+    <strong>Reviews:</strong>
+    <%= review.r_desc %>
+  </p>
+  
+  <p>
+    <strong>Rating:</strong>
+    <%= review.star %>
+  </p>
+  <p>
+    <strong>Reviewed At:</strong>
+    <%= review.created_at %>
+  </p>
+
+  
+<% end %>
+
+<hr><h2>Add a Review:</h2><hr>
+<%= form_with model: [ @book, @book.reviews.build ] do |form| %>
+  <p>
+    <strong><%= form.label :reviewer_name %></strong>
+    <%= form.text_field :r_name %>
+  </p>
+  <p>
+    <strong><%= form.label :body_of_your_review %></strong>
+    <%= form.text_area :r_desc %>
+  </p>
+  <p>
+    <strong><%= form.label :rating %></strong>
+    <span class="select">
+        <%= form.text_field :star, collection: Review::STAR, prompt: "Select Your Rating" %>
+    </span>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+
+
+<div class="container mt-5">
+    <%= link_to 'Edit Book', edit_book_path(@book), class: "btn btn-warning" %>
+    <%= link_to "Delete Book", book_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } ,class: "btn btn-danger "%>
+</div>
+
+
+

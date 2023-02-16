@@ -1,0 +1,42 @@
+<h1 style="text-align:center;color:white;background-color:red">Enter Author Detail</h1>
+
+<%= form_with model: @review do |f| %>
+  <div class="container-sm">
+    
+    <div class="row mb-3 mt-5">
+    
+      <strong><%= f.label :enter_name %></strong>
+      <%= f.text_field :r_name, placeholder: "Enter Your Name", autofocus: true %>
+    
+    </div>
+
+    <div class="column mb-3 ">
+      <strong><%= f.label :date_of_birth %></strong>
+      <%= f.date_field :birth %>
+    
+    </div>
+
+    <div class="column mb-3">
+      <strong><%= f.label :address %></strong>
+      <%= f.text_field :locality, placeholder: "Enter Your Address", autofocus: true %>
+    
+    </div>
+  
+    <div class="row mb-3">
+      <strong><%= f.label :interested_in_books %></strong>
+      <%= f.text_field :interested, placeholder: "Image of book", autofocus: true %>
+    
+    </div>
+
+    <div class="column mb-3">
+      <strong><%= f.label :about_you %></strong>
+      <%= f.text_field :bio, placeholder: "something about you", autofocus: true %>
+    
+    </div>
+
+  <%= f.submit "submit", class:"btn btn-success " %>
+  </div>
+
+  
+  
+<%end%>

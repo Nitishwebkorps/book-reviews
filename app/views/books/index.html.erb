@@ -1,0 +1,38 @@
+<h1 style="text-align:center;color:white;background-color:red;mt-3">Book Details</h1>
+
+
+<div class="book-index-grid d-flex  flex-wrap">
+  <% @book.each do |book| %>
+
+
+  <div class="card m-2 " style="width: 18rem;">
+  
+  <%= image_tag book.image, :size=>"287x400" if book.image.attached? %>
+    <div class="card-body">
+       <h5 class="card-title"><b>Book Name :-  </b><%= link_to book.book_name, book %></h5>
+       <p class="card-text"><b>Published Date :- </b> <%= book.published_date %></p>
+        <p class="card-text"><b>Reviews :- </b><%= book.reviews.count %></p>
+
+       <% if user_signed_in? %>
+       <%= link_to 'Edit Book', edit_book_path(book), class: "btn btn-warning" %>
+       <%= link_to "Delete Book", book_path(book), data: { turboa_method: :delete, turbo_confirm: 'Are you sure?' } ,class: "btn btn-danger "%>
+      <% end %>
+
+    </div>
+  </div>
+
+     <% end %>
+
+     
+</div>
+
+<div>
+  <h4>Import The Data</h4>
+  <%= form_with url: import_users_path, method: :post do |form| %>
+    <%= form.file_field :file, accept: ".csv" %>
+    <%= form.button "Import CSV"%>
+  <%end%>
+</div> 
+
+
+

@@ -1,0 +1,32 @@
+
+<h1 style="text-align:center;color:white;background-color:red"> Author Information</h1>
+
+  <div class="container">
+  <div class="row">
+    <div class="col-9"><h2 style="text-align:left;color:blue">Author Information</h2></div><hr>
+    <div class="col-4"><div class="feature-image">
+       
+        <%= image_tag @author.pic, :size=>"287x400" if @author.pic.attached? %>
+        
+        
+      </div>
+    
+    </div>
+    <div class="col-6 ">
+
+    <br><h3 class="d-flex justify-content-between align-item:centre mx-5">Name :- <%= @author.name %></h3>
+    <br><h3 class="d-flex justify-content-between align-item:centre mx-5">About :-<%= @author.about %></h3>
+    <br><h3 class="d-flex justify-content-between align-item:centre mx-5">Experience :- <%= @author.experience %> Year</h3>
+    <br><h3 class="d-flex justify-content-between align-item:centre mx-5">Date Of Birth :- <%= @author.dob %></h3>
+    <br><h3 class="d-flex justify-content-between align-item:centre mx-5">Email :- <%= @author.email %></h3>
+    <br><h3 class="d-flex justify-content-between align-item:centre mx-5">Address :- <%= @author.address %></h3>
+
+    <h5 style="color:red">Tap to see more <%= link_to 'related author book', user_path, class: "btn btn-info" %>and give your fedback</h5>
+
+    
+    </div>
+    
+  </div>
+  <%= link_to 'Edit Author', edit_author_path(@author), class: "btn btn-warning" %>
+   <%= link_to "Delete Author", author_path(@author), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } ,class: "btn btn-danger "%>
+</div>

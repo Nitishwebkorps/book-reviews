@@ -1,0 +1,65 @@
+<h1 style="text-align:center;color:white;background-color:red">Edit Author Detail</h1>
+
+<%= form_with model: @author do |f| %>
+  <div class="container-sm">
+    
+  
+    <div class="row mb-3 mt-5">
+    
+      <strong><%= f.label :enter_author_name %></strong>
+      <%= f.text_field :name, placeholder: "Enter Author Name", autofocus: true %>
+    
+    </div>
+
+    <div class="row mb-3">
+      <strong><%= f.label :about %></strong>
+      <%= f.text_field :about, placeholder: "Enter about Author", autofocus: true %>
+    
+    </div>
+
+    <div class="column mb-3">
+      <strong><%= f.label :enter_experience %></strong>
+      <%= f.number_field :experience, placeholder: "Enter Experience Year", autofocus: true %>
+    
+    </div>
+  
+    <div class="row mb-3">
+      <strong><%= f.label :total_written_books %></strong>
+      <%= f.number_field :written_books, placeholder: "Image of book", autofocus: true %>
+    
+    </div>
+
+    <div class="column mb-3">
+      <strong><%= f.label :date_of_birth %></strong>
+      <%= f.text_field :dob, placeholder: "", autofocus: true %>
+    
+    </div>
+
+    <div class="row mb-3">
+      <strong><%= f.label :author_email %></strong>
+      <%= f.email_field :email, placeholder: "Write author's email", autofocus: true %>
+    
+    </div>
+
+    <div class="row mb-3">
+      <strong><%= f.label :authors_address %></strong>
+      <%= f.text_field :address, placeholder: "Enter Authors Address", autofocus: true %>
+    
+    </div>    
+ 
+    <div class="row mb-3">
+      <Strong><%= f.label :Chhose_Your_Profile_Pic %></strong>
+      <%= f.file_field :pic %>
+    
+    </div>
+
+    
+
+    
+  
+  <%= f.submit "submit", class:"btn btn-success " %>
+  </div>
+
+  
+  
+<%end%>

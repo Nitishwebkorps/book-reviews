@@ -1,0 +1,38 @@
+<h1 style="text-align:center;color:white;background-color:red">All Registered Author Detail</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Serial Number</th>
+      <th scope="col">Name</th>
+      <th scope="col">About</th>
+      <th scope="col">Experience</th>
+      <th scope="col">Date Of Birth</th>
+      <th scope="col">Address</th>
+      <th scope="col">Email</th>
+      <th scope="col">Created Date/Time</th>
+      <th scope="col">Updated Date/Time</th>
+      <th scope="col">Action</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+  <% @authors.each do |author| %>
+    <tr>
+      <th scope="row"><%= author.id %></th>
+      <td><%= author.name %></td>
+      <td><%= author.about %></td>
+      <td><%= author.experience %> Year</td>
+      <td><%= author.dob %></td>
+      <td><%= author.address %></td>
+      <td><%= author.email %></td>
+      <td><%= author.created_at %></td>
+      <td><%= author.updated_at %></td>
+      <td><%= link_to 'More info', personal_details_author_path(author) %></td>
+      
+       
+    </tr>
+    <% end %>
+    
+  </tbody>
+</table>

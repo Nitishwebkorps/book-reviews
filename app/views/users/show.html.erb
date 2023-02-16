@@ -1,0 +1,41 @@
+<h1 style="text-align:center;color:white;background-color:red;mt-3">Book Details</h1>
+<div class="book-index-grid d-flex  flex-wrap">
+  <% @k.each do |user| %>
+    <div class="card m-2 " style="width: 18rem;">
+      <div class="card-body">
+
+     
+
+        <h5 class="card-title"><b>Book ID :-  </b><%= user.id %></h5>
+        <%= image_tag user.image, :size=>"265x400" if user.image.attached? %>
+        <h5 class="card-title"><b>Book Name :-  </b><%= user.book_name %></h5>
+        <h5 class="card-title"><b>Book Description :-  </b><%= user.description %></h5> 
+        <p class="card-text"><b>Published Date :- </b> <%= user.published_date %></p>
+        <h5 class="card-title"><b>Book Created At :-  </b><%= user.created_at %></h5>
+      </div>
+
+      <hr><h2>Posted Reviews</h2><hr>
+
+      <% user.reviews.each do |review| %>
+        
+        
+          <p>
+            <strong>Reviewer Name:</strong>
+            <%= review.r_name %>
+          </p>
+          <p>
+            <strong>Reviews:</strong>
+            <%= review.r_desc %>
+          </p>
+          <p>
+            <strong>Rating:</strong>
+            <%= review.star %>
+          </p>
+        
+      <% end %>
+    </div>
+  <% end %>  
+</div>
+
+
+

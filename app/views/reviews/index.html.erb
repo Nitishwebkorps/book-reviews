@@ -1,0 +1,39 @@
+<h1 style="text-align:center;color:white;background-color:red;mt-3">My all Reviews</h1>
+
+<div class="book-index-grid d-flex  flex-wrap">
+  <% @review.each do |review| %>
+    <% if current_user.id == review.book.user_id %>
+    <div class="card m-2 " style="width: 18rem;">
+      <div class="card-body"><h3>My Reviews</h3><hr>
+      <p>
+          <strong>Book Name:</strong>
+          <%= review.book.id %>
+          
+        </p>
+        <p>
+          <strong>Book Name:</strong>
+          <%= review.book.book_name %>
+          
+        </p>
+        <p>
+          <strong>Reviewer Name:</strong>
+          <%= review.r_name %>
+        </p>
+        <p>
+          <strong>Reviews:</strong>
+          <%= review.r_desc %>
+        </p>
+        <p>
+          <strong>Rating:</strong>
+          <%= review.star %>
+        </p>
+      </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+     
+
+     
+

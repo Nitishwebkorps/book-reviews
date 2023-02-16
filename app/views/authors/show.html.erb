@@ -1,0 +1,32 @@
+
+<h1 style="text-align:center;color:white;background-color:red"> Author Detail</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-9"><h2 style="text-align:left;color:blue">Author Information</h2></div><hr>
+    <div class="col-4"><div class="feature-image">
+       
+        <%= image_tag @author.pic, :size=>"287x400" if @author.pic.attached? %>
+        
+        
+      </div>
+    
+    </div>
+    <div class="col-6 ">
+    <br><h2 class="d-flex justify-content-between align-item:centre mx-5">Name :- <%= @author.name %></h2>
+    <br><h2 class="d-flex justify-content-between align-item:centre mx-5">About :-<%= @author.about %></h2>
+    <br><h2 class="d-flex justify-content-between align-item:centre mx-5">Experience :- <%= @author.experience %> Year</h2>
+    <br><h2 class="d-flex justify-content-between align-item:centre mx-5">Date Of Birth :- <%= @author.dob %></h2>
+    <br><h2 class="d-flex justify-content-between align-item:centre mx-5">Email :- <%= @author.email %></h2>
+    <br><h2 class="d-flex justify-content-between align-item:centre mx-5">Address :- <%= @author.address %></h2>
+
+    
+    
+    
+    </div>
+    
+  </div>
+
+  <%= link_to 'Edit Profile', edit_author_path(@author), class: "btn btn-warning" %>
+  
+  

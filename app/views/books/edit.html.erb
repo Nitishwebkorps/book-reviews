@@ -1,0 +1,44 @@
+<h1 style="text-align:center;color:white;background-color:black">Edit Book Information</h1>
+
+<%= form_for @book do |f| %>
+    <div class="container-sm">
+    
+  
+    <div class="row mb-3 mt-5">
+    
+    <%= f.label :enter_book_name %>
+    <%= f.text_field :book_name, placeholder: "Enter Book Name", autofocus: true %>
+    
+    </div>
+
+    <div class="row mb-3">
+    <%= f.label :details_of_book_in_short %>
+    <%= f.text_field :description, placeholder: "Enter Description about book", autofocus: true %>
+    
+    </div>
+
+    <div class="column mb-3">
+    <%= f.label :enter_published_date_of_book %>
+    <%= f.text_field :published_date, placeholder: "Enter Published date", autofocus: true %>
+    
+    </div>
+  
+    <div class="row mb-3">
+    <%= f.label :coverpage_of_book %>
+    <%= f.file_field :image, placeholder: "Image of book", autofocus: true %>
+    
+    </div>
+    
+ 
+    
+
+    
+
+    
+  
+  <%= f.submit "submit", class:"btn btn-success " %>
+  </div>
+
+  
+  
+<%end%>

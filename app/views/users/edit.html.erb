@@ -1,0 +1,28 @@
+<h1 style="text-align:center;color:white;background-color:red;mt-3">Edit Role Of Registered user</h1>
+
+<%= form_with model: @user do |form| %>
+
+    <%=  User.all.pluck(:role)%>
+    
+
+    <div class="column mb-3">
+    <%= form.label :Writer %>
+    <%= form.radio_button :role, 'writer' %>
+    
+    </div>
+    <div class="column mb-3">
+    <%= form.label :Reviewer %>
+    <%= form.radio_button :role,  'reviewer'%>
+    
+    </div>
+    <div class="column mb-3">
+    <%= form.label :Admin %>
+    <%= form.radio_button :role, 'admin' %>
+    
+    </div>
+
+    
+    
+    <%= form.button :submit %>
+
+<% end %>
